@@ -1,36 +1,56 @@
-// Get form and product info display elements from the DOM
-const productForm = document.getElementById("productForm");
-const productNameDisplay = document.getElementById("productNameDisplay");
-const productPriceDisplay = document.getElementById("productPriceDisplay");
-const productDescriptionDisplay = document.getElementById("productDescriptionDisplay");
-const productInfo = document.getElementById("productInfo");
-
-// Add event listener to the form submission
-productForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  // Get the values entered by the user
-  const productName = document.getElementById("productName").value;
-  const productPrice = document.getElementById("productPrice").value;
-  const productDescription = document.getElementById("productDescription").value;
-
-  // Update the product info display
-  productNameDisplay.textContent = productName;
-  productPriceDisplay.textContent = productPrice;
-  productDescriptionDisplay.textContent = productDescription;
-
-  // Show the product info display
-  productInfo.style.display = "block";
-
-  // Reset the form
-  productForm.reset();
-});
-In this example, we have an HTML file with a form for updating product information. The user can enter the product name, price, and description. When the form is submitted, the JavaScript code captures the values entered by the user and updates the product information display with the entered values.
-
-The CSS file styles the elements,
+function moveCard(card) {
+  var list = card.parentNode;
+  var newList = list.nextElementSibling;
+  if (!newList) {
+    newList = list.previousElementSibling;
+  }
+ 
+  newList.appendChild(card);
+}
 
 
 
-<link rel="stylesheet" type="text/css" href="styles.css"></link>
+// var dragCard;
 
+//     function allowDrop(event) {
+//       event.preventDefault();
+//     }
 
+//     function drag(event) {
+//       dragCard = event.target;
+//       event.dataTransfer.setData('text/plain', null); // Store card data for visibility during drag
+//     }
+
+//     function drop(event) {
+//       event.preventDefault();
+//       var list = event.target.parentNode;
+//       var newList = list;
+//       var card = document.getElementById(event.dataTransfer.getData("text/plain"));
+//       if (card && newList !== card.parentNode) {
+//         newList.appendChild(card);
+//         updateCardStatus(card, newList);
+//       }
+//     }
+
+//     function moveCard(card) {
+//       var list = card.parentNode;
+//       var currentStatus = card.getAttribute('data-status');
+//       if (currentStatus === 'todo') {
+//         var inProgressList = document.querySelector('.list:nth-child(2)');
+//         inProgressList.appendChild(card);
+//         updateCardStatus(card, inProgressList);
+//       } else if (currentStatus === 'inprogress') {
+//         var todoList = document.querySelector('.list:first-child');
+//         todoList.appendChild(card);
+//         updateCardStatus(card, todoList);
+//       } else if (currentStatus === 'done') {
+//         var inProgressList = document.querySelector('.list:nth-child(2)');
+//         inProgressList.appendChild(card);
+//         updateCardStatus(card, inProgressList);
+//       }
+//     }
+
+//     function updateCardStatus(card, list) {
+//       var status = list.querySelector('.list-title').textContent.toLowerCase();
+//       card.setAttribute('data-status', status);
+//     }
