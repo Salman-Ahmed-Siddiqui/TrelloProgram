@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Trello Board</title>
-  <link rel="stylesheet" type="text/css" href="styles.css"></link>
-  <h1 class="board">Trello Board</h1>
- </head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trello Program</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<h1 class="board">Trello Program (Task Management Program)</h1>
 <body>
   <div class="board">
     <div class="list">
-      <div class="list-title">To Do</div>
-      <div class="card" onclick="moveCard(this)">Task 1</div>
-      <div class="card" onclick="moveCard(this)">Task 2</div>
+      <h2>To Do</h2>
+      <div class="card-list" id="todo-list" ondrop="drop(event, 'todo-list')" ondragover="allowDrop(event)">
+        <div class="task" draggable="true" id="task1">Task 1</div>
+        <div class="task" draggable="true" id="task2">Task 2</div>
+        
+      </div>
+      <div class="add-card">
+        <input type="text" id="task-input" placeholder="Enter a new task">
+        <button onclick="addTask()">Add</button>
+      </div>
     </div>
     <div class="list">
-      <div class="list-title">In Progress</div>
-      <div class="card" onclick="moveCard(this)">Task 3</div>
+      <h2>In Progress</h2>
+      <div class="card-list" id="inprogress-list" ondrop="drop(event, 'inprogress-list')" ondragover="allowDrop(event)"></div>
     </div>
     <div class="list">
-      <div class="list-title">Done</div>
-      <div class="card" onclick="moveCard(this)">Task 4</div>
-      <div class="card" onclick="moveCard(this)">Task 5</div>
+      <h2>Done</h2>
+      <div class="card-list" id="done-list" ondrop="drop(event, 'done-list')" ondragover="allowDrop(event)"></div>
     </div>
   </div>
-
-  
-
+  <h5 align ="center" class="copyright-text">
+    <p> 2023, Thanks for Visiting <a href="https://salman-ahmed-siddiqui.github.io/My-Portfolio-Website/">S.A Web Design & Services Group</a></p>
+  </h5>
   <script src="script.js"></script>
-  
 </body>
 </html>
